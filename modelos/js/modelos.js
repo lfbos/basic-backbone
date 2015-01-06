@@ -23,9 +23,15 @@ $(document).ready(function(){
         });
         // trace(panel.get("rotulo"));
         // trace(panel.toString());
-        panel.set("rotulo","nuevo rotulo");
+        /*panel.set("rotulo","nuevo rotulo");
         panel.set("isActive","dsfs");
-        panel.isValid();
+        panel.isValid();*/
+
+        var subPanel = new SubPanel({
+            txt: "Este es el nuevo panel",
+            rotulo: "Mi panel"
+        });
+        trace(subPanel.toString());
     });
     
     

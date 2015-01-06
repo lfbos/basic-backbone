@@ -29,3 +29,7 @@ var Panel = Backbone.Model.extend({
 		alert(error);
 	}
 });
+
+var SubPanel = Panel.extend({
+	prefijo: "Texto del SUBPANEL "
+});
