@@ -32,7 +32,22 @@ function ejemplo2(){
    });
 }
 
+function ejemplo3() {
+	var objeto1 = {};
+	var objeto2 = {};
+	_.extend(objeto1, Backbone.Events);
+	_.extend(objeto2, Backbone.Events);
 
+	
+	$("#ejemplo3").click(function() {
+		objeto1.trigger("alert","lanzando evento desde objeto1");
+	});
+
+	objeto2.listenTo(objeto1, "alert", function(msg) {
+		alert("recibido desde objeto2: " + msg);
+		this.stopListening(objeto1);
+	});
+}
 
 
 
