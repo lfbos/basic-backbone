@@ -11,10 +11,23 @@ $(document).ready(function(){
     {txt: "Este es el panel 2", rotulo: "Panel 2", id: "2"},
     {txt: "Este es el panel 3", rotulo: "Panel 3", id: "3"}
   ]);
+
+  onChangePanels(null, null);
+  paneles.on({"add":onChangePanels, "remove":onChangePanels});
   trace(JSON.stringify(paneles.toJSON()));
 
+  $("#create_button").click(function() {
+    var panel = new Panel({txt: "Este es el panel 4", rotulo: "Panel 4", id: "4"});
+    paneles.add(panel);
+    paneles.add({txt: "Este es el panel 5", rotulo: "Panel 5", id: "5"});
+  });
+
 });    
-    
+
+function onChangePanels(model, collection) {
+  $("#listado").html("<ul></ul>");
+  paneles.each(pintaPanel);
+}    
 
     
 function pintaPanel(data){
