@@ -3,7 +3,15 @@ var num_paneles;
 $(document).ready(function(){
 
   var PanelesCollection = Backbone.Collection.extend({
-    model: Panel
+    model: Panel,
+    sort_key: "cid",
+    comparator: function(item) {
+      return item.get(this.sort_key);
+    },
+    sortByField: function(campo) {
+      this.sort_key = campo;
+      this.sort();
+    }
   });
 
   paneles = new PanelesCollection([
@@ -40,6 +48,10 @@ $(document).ready(function(){
     var _id = $(".panel_seleccionado").data("id_panel");
     var item = paneles.get(_id);
     item.set("rotulo", $("#rot_set").val());
+  });
+
+  $("#sort_button").click(function() {
+    paneles.sortByField("rotulo");
   });
 
 });    
