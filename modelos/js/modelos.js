@@ -23,7 +23,7 @@ $(document).ready(function(){
         });
         trace(panel.get("rotulo"));
         trace(panel.toString());
-
+        panel.set("rotulo","nuevo rotulo");
     });
     
     
