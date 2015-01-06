@@ -5,6 +5,10 @@ var Panel = Backbone.Model.extend({
 		rotulo: "Sin nombre"
 	},
 	initialize: function(attr) {
-		trace("El txt es " + attr.txt);
+		// trace("El txt es " + attr.txt);
+		this.set("txt", this.prefijo + attr.txt);
+	},
+	toString: function() {
+		return "El texto es: " + this.get("txt");
 	}
 });

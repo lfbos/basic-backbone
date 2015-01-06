@@ -21,6 +21,8 @@ $(document).ready(function(){
             txt: "Este es el nuevo panel",
             rotulo: "Mi panel"
         });
+        trace(panel.get("rotulo"));
+        trace(panel.toString());
 
     });
     
