@@ -6,6 +6,7 @@ var Panel = Backbone.Model.extend(
         },
         initialize: function(attr){
             this.on('change:txt',this.onChangeTxt,this);
+            this.on('change:rotulo', onChangePanels, this, null);
             trace("Creando un nuevo panel con texto: " + this.get("txt"));
             
         },

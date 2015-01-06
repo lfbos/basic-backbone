@@ -36,6 +36,12 @@ $(document).ready(function(){
     paneles.reset();
   });
 
+  $("#set_button").click(function() {
+    var _id = $(".panel_seleccionado").data("id_panel");
+    var item = paneles.get(_id);
+    item.set("rotulo", $("#rot_set").val());
+  });
+
 });    
 
 function onChangePanels(model, collection) {
@@ -49,13 +55,11 @@ function pintaPanel(data){
   $div.html(data.get("rotulo") + " " + data.cid);
   $div.data("id_panel", data.cid);
   $div.click(function(){
+    $(".panel_seleccionado").toggleClass("panel_seleccionado");
     $(this).toggleClass("panel_seleccionado");
-    if($.seleccionado != undefined && $.seleccionado.data("id_panel") != $(this).data("id_panel")){
-      $.seleccionado.toggleClass("panel_seleccionado");
-    }
     $.seleccionado = $(this);
   });
-    $("#listado ul").append($div);
+  $("#listado ul").append($div);
 }
 
 //función que escribe un mensaje en la consola
