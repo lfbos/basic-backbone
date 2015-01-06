@@ -1,7 +1,14 @@
 $(document).ready(function(){
     $("#create_button").click(function(){
-        panel = new Panel();
-        trace(panel.nombre);
+        var panel1 = new Panel();
+        var panel2 = new Panel();
+        trace(panel1.propInstancia + ", " + Panel.propEstatica);
+        trace(panel1.propInstancia + ", " + Panel.propEstatica);
+        panel1.propInstancia = "nuevo valor";
+        Panel.propEstatica = "nuevo valor estático"
+        trace(panel1.propInstancia + ", " + Panel.propEstatica);
+        trace(panel1.propInstancia + ", " + Panel.propEstatica);
+
     });
     
     

@@ -1,3 +1,7 @@
-var Panel = Backbone.Model.extend({
-	nombre: "Mi panel"
+var Panel = Backbone.Model.extend(
+{
+	propInstancia: "instancia genérica"
+}, 
+{
+	propEstatica: "valor estático"
 });
