@@ -9,13 +9,19 @@ $(document).ready(function(){
         trace(panel1.propInstancia + ", " + Panel.propEstatica);
         trace(panel1.propInstancia + ", " + Panel.propEstatica);*/
 
-        var panel1 = new Panel();
+        /*var panel1 = new Panel();
         var panel2 = new Panel({
             txt: "Este es el nuevo panel",
             rotulo: "Mi panel"
         });
         trace(JSON.stringify(panel1.toJSON()));
-        trace(panel2.toJSON());
+        trace(panel2.toJSON());*/
+
+        var panel = new Panel({
+            txt: "Este es el nuevo panel",
+            rotulo: "Mi panel"
+        });
+
     });
     
     
