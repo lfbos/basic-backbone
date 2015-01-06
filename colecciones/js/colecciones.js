@@ -11,6 +11,12 @@ $(document).ready(function(){
     sortByField: function(campo) {
       this.sort_key = campo;
       this.sort();
+    },
+    findByRotulo: function(txt) {
+      filtered = this.filter(function(item) {
+        return item.get('rotulo').indexOf(txt) != -1;
+      });
+      return new PanelesCollection(filtered);
     }
   });
 
@@ -52,6 +58,11 @@ $(document).ready(function(){
 
   $("#sort_button").click(function() {
     paneles.sortByField("rotulo");
+  });
+
+  $("#filter_button").click(function() {
+    trace(paneles.findByRotulo($("#rot_filter").val()));
+    trace(paneles.where({"rotulo": $("#rot_filter").val()})); // Recupera un array con todos los objetos que coinciden con el valor q se coloca (en este caso rotulo)
   });
 
 });    
