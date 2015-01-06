@@ -13,7 +13,7 @@ $(document).ready(function(){
   ]);
 
   onChangePanels(null, null);
-  paneles.on({"add":onChangePanels, "remove":onChangePanels});
+  paneles.on({"add":onChangePanels, "reset":onChangePanels, "remove":onChangePanels, "sort":onChangePanels});
   trace(JSON.stringify(paneles.toJSON()));
   num_paneles = paneles.length + 1;
 
@@ -30,6 +30,10 @@ $(document).ready(function(){
 
   $("#delete_button_ID").click(function() {
     paneles.remove(paneles.get($("#rot_del").val()));
+  });
+
+  $("#reset_button").click(function() {
+    paneles.reset();
   });
 
 });    
