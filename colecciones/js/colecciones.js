@@ -1,5 +1,5 @@
- var paneles;
-
+var paneles;
+var num_paneles;
 $(document).ready(function(){
 
   var PanelesCollection = Backbone.Collection.extend({
@@ -15,11 +15,21 @@ $(document).ready(function(){
   onChangePanels(null, null);
   paneles.on({"add":onChangePanels, "remove":onChangePanels});
   trace(JSON.stringify(paneles.toJSON()));
+  num_paneles = paneles.length + 1;
 
   $("#create_button").click(function() {
-    var panel = new Panel({txt: "Este es el panel 4", rotulo: "Panel 4", id: "4"});
-    paneles.add(panel);
-    paneles.add({txt: "Este es el panel 5", rotulo: "Panel 5", id: "5"});
+    /*var panel = new Panel({txt: "Este es el panel 4", rotulo: "Panel 4", id: "4"});
+    paneles.add(panel);*/
+    paneles.add({txt: "Este es el panel " + num_paneles, rotulo: "Panel " + num_paneles, id: num_paneles});
+    num_paneles++;
+  });
+
+  $("#delete_button").click(function() {
+    paneles.remove(paneles.at(0));
+  });
+
+  $("#delete_button_ID").click(function() {
+    paneles.remove(paneles.get($("#rot_del").val()));
   });
 
 });    
@@ -32,7 +42,7 @@ function onChangePanels(model, collection) {
     
 function pintaPanel(data){
   var $div = $("<li>", {id: "ref_panel_"+data.cid});
-  $div.html(data.get("rotulo"));
+  $div.html(data.get("rotulo") + " " + data.cid);
   $div.data("id_panel", data.cid);
   $div.click(function(){
     $(this).toggleClass("panel_seleccionado");
