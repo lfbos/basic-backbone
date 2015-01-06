@@ -14,8 +14,8 @@ $(document).ready(function(){
             txt: "Este es el nuevo panel",
             rotulo: "Mi panel"
         });
-        console.debug(panel1);
-        console.debug(panel2);
+        trace(JSON.stringify(panel1.toJSON()));
+        trace(panel2.toJSON());
     });
     
     
