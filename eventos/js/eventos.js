@@ -63,4 +63,19 @@ function ejemplo4() {
 
 }
 
+function ejemplo5() {
+	var objeto = {};
+	_.extend(objeto, Backbone.Events);
 
+	objeto.on("all", function(eventName, msg) {
+		alert(eventName + ": " + msg);
+	});
+
+	$("#ejemplo5a").click(function() {
+		objeto.trigger("alert:obj1", "pasando datos de evento desde el primer enlace");
+	});
+	$("#ejemplo5b").click(function() {
+		objeto.trigger("alert:obj2", "pasando datos de evento desde el segundo enlace");
+	});
+
+}
