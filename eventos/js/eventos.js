@@ -49,6 +49,18 @@ function ejemplo3() {
 	});
 }
 
+function ejemplo4() {
+	var objeto = {};
+	_.extend(objeto, Backbone.Events);
 
+	objeto.once("alert", function(msg) {
+		alert("recibido sólo una vez: " + msg);
+	});
+
+	$("#ejemplo4").click(function () {
+		objeto.trigger("alert", "pasando datos de evento");
+	});
+
+}
 
 
