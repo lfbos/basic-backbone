@@ -21,9 +21,11 @@ $(document).ready(function(){
             txt: "Este es el nuevo panel",
             rotulo: "Mi panel"
         });
-        trace(panel.get("rotulo"));
-        trace(panel.toString());
+        // trace(panel.get("rotulo"));
+        // trace(panel.toString());
         panel.set("rotulo","nuevo rotulo");
+        panel.set("isActive","dsfs");
+        panel.isValid();
     });
     
     

@@ -2,7 +2,8 @@ var Panel = Backbone.Model.extend({
 	prefijo: "Texto del panel: ",
 	defaults: {
 		txt: "Aún no se ha definido texto",
-		rotulo: "Sin nombre"
+		rotulo: "Sin nombre",
+		isActive: false
 	},
 	initialize: function(attr) {
 		this.on("change", this.onChangeAll, this);
@@ -18,5 +19,13 @@ var Panel = Backbone.Model.extend({
 	},
 	onChangeRotulo: function(model, options) {
 		trace("Se ha cambiado el rótulo por " + this.get("rotulo"));
+	},
+	validate: function(attrs, options) {
+		if(attrs.isActive != undefined && !_.isBoolean(attrs.isActive)) {
+			return "el valor de activacion no es correcto";
+		}
+	},
+	onInvalid: function(model, error) {
+		alert(error);
 	}
 });
