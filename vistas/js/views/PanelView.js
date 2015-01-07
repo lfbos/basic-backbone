@@ -1,10 +1,16 @@
 var PanelView = Backbone.View.extend({
     template: _.template($("#panel_template").html()),
-    initialize: function() {
+    events: {
+        'click' : "_click",
+    },
+    initialize: function(){
         this.render();
     },
-    render: function(eventName) {
+    render: function(eventName){
         $(this.$el).append(this.template(this.model.toJSON()));
         return this;
+    },
+    _click:function(e){
+        trace(this.model.attributes.rotulo);
     }
 });
