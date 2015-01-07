@@ -7,6 +7,18 @@ $(document).ready(function(){
   miRouter = new Enrutador();
   Backbone.history.start();
 
+  $("#enlace_help").click(function() {
+    miRouter.navigate("help", {trigger: true});
+  });
+
+  $("#set_button").click(function() {
+    var valor = $("#rot_set").val();
+    var id = $(".panel_seleccionado").data("id");
+    if(id != undefined) {
+      
+    }
+  });
+
   var PanelesCollection = Backbone.Collection.extend({
     model:Panel,
     sort_key: "cid",
