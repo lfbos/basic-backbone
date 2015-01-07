@@ -69,11 +69,15 @@ $(document).ready(function(){
 
 function onChangePanels(model, collection) {
   $("#listado").html("<ul></ul>");
-  paneles.each(pintaPanel);
+  //paneles.each(pintaPanel);
+  var botonView = new BotonView({
+    el: $("#listado ul"), 
+    collection: paneles
+  });
 }    
 
     
-function pintaPanel(data){
+/*function pintaPanel(data){
   var $div = $("<li>", {id: "ref_panel_"+data.cid});
   $div.html(data.get("rotulo") + " " + data.cid);
   $div.data("id_panel", data.cid);
@@ -84,7 +88,7 @@ function pintaPanel(data){
     var panelView = new PanelView({el: $("#contenedor"), model: data});
   });
   $("#listado ul").append($div);
-}
+}*/
 
 //función que escribe un mensaje en la consola
 function trace(msg){
